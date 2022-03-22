@@ -1,4 +1,4 @@
-import {ICategory} from '../models/ICategory';
+import { ICategory } from '../models/ICategory';
 import { IMeal } from '../models/IMeal';
 
 export const CATEGORIES:ICategory[] = [
