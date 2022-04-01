@@ -3,11 +3,15 @@ import CategoryGridTile from "../components/CategoryGrideTile";
 import { CATEGORIES } from "../data/dummy-data";
 import { ICategory } from "../models/ICategory"
 
-function renderCategoryItem(itemData: ICategory) {
-    return <CategoryGridTile {...itemData}/>;
-}
+function CategoriesScreen({navigation}:any) {
+    function renderCategoryItem(itemData: ICategory) {
+        function pressHandler() {
+            navigation.navigate("MealsOverview", itemData);
+        }
+    
+        return <CategoryGridTile category={itemData} onPress={pressHandler}/>;
+    }
 
-function CategoriesScreen() {
     return (
         <FlatList
             data={CATEGORIES}
