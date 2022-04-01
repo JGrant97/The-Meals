@@ -3,8 +3,8 @@ import CategoryGridTile from "../components/CategoryGrideTile";
 import { CATEGORIES } from "../data/dummy-data";
 import { ICategory } from "../models/ICategory"
 
-function renderCategoryItem(itemData: any) {
-    return <CategoryGridTile title={itemData.item.title} colour={itemData.item.color}/>;
+function renderCategoryItem(itemData: ICategory) {
+    return <CategoryGridTile {...itemData}/>;
 }
 
 function CategoriesScreen() {
@@ -12,7 +12,9 @@ function CategoriesScreen() {
         <FlatList
             data={CATEGORIES}
             keyExtractor={(item: ICategory) => item.id}
-            renderItem={renderCategoryItem} />
+            renderItem={({item}) => {return renderCategoryItem(item)}} 
+            numColumns={2}
+            />
     );
 }
 
